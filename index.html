@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+</head>
+<body onload="getLocation()" >
+    <div id="map"></div>
+</body>
+<script>
+   function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      var map = L.map("map", {
+        center: [latitude, longitude],
+        zoom: 13,
+      });
+
+      var tile_layer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+        }
+      ).addTo(map);
+
+      
+      var marker = L.marker([23.37987, 85.335715]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "ssid:a8:da:0c:86:31:f5 bssid:JioFiber-LAGuB_5G password:asdf1234"
+      );
+      marker.bindPopup(popup).openPopup();
+      var marker = L.marker([24.5145345098039, 86.6449871568628]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "ssid:a0:47:d7:25:d4:c8 bssid:Restaurant Pam Tree In password:not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+        var marker = L.marker([24.4889979375498,86.698793006126]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: 70:97:41:d9:9b:ef, Name: THE TRAVEL COMMUNICATION, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4889979375498,86.698793006126]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: f0:ed:b8:95:49:cc, Name: shree sadgurudeo auto-4g, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4889979375498,86.698793006126]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: c0:68:cc:3f:e5:62, Name: JioFiber4g, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4890010694656,86.6987164060379]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: a4:f3:3b:43:5f:48, Name: Airel_7004339300, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4890111871862,86.6984654775532]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: a4:f3:3b:43:5f:4a, Name: Airtel_7004339300_5GHz, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4890111871862,86.6984654775532]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: f0:ed:b8:95:49:cd, Name: shreesadgurudeoauto-5g, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4890111871862,86.6984654775532]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: 70:97:41:d9:9b:f0, Name: MAA PARVATI AGENCIES, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+      var marker = L.marker([24.4890486804228,86.6981987813366]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "BSSID: a4:f3:3b:43:5f:4a, Name: Airtel_7004339300_5GHz, password:Not found yet"
+      );
+      marker.bindPopup(popup).openPopup();
+
+
+      var marker = L.marker([latitude, longitude]).addTo(map);
+
+      var popup = L.popup().setContent(
+        "your location"
+      );
+
+      marker.bindPopup(popup).openPopup();
+    }
+</script>
+</html>
